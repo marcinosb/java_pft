@@ -1,4 +1,4 @@
-package ru.stqa.addressbook;
+package ru.stqa.addressbook.model;
 
 /**
  * Created by user on 13.12.2016.
