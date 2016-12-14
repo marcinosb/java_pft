@@ -9,8 +9,6 @@ import ru.stqa.addressbook.model.ContactData;
  */
 public class ContactHelper extends BaseHelper {
 
-  private FirefoxDriver wd;
-
   public ContactHelper(FirefoxDriver wd) {
     super(wd);
   }
@@ -25,4 +23,25 @@ public class ContactHelper extends BaseHelper {
     type(By.name("home"), contactData.getPhoneNumber());
     type(By.name("email"), contactData.getEmailAddress());
   }
+
+  public void selectContact() {
+    click(By.xpath("//input[@name='selected[]']"));
+
+  }
+
+  public void deleteSelectedContacts() {
+    //Remove first entry from the top
+    click(By.xpath("//input[@value='Usuń']"));
+    wd.switchTo().alert().accept();
+  }
+
+  public void editContact() {
+    click(By.cssSelector("img[alt='Edytuj']"));
+  }
+
+  public void submitContactEdition() {
+    click(By.xpath("//input[@type='submit']"));
+  }
+
+
 }
