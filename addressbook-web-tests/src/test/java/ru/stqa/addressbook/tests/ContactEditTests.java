@@ -8,9 +8,9 @@ import ru.stqa.addressbook.model.ContactData;
  */
 public class ContactEditTests extends TestBase{
   @Test
-  public void testContactDeletion() {
+  public void testContactEdition() {
     app.getContactHelper().editContact();
-    app.getContactHelper().fillContactForm(new ContactData("Jan", "Kwiatkowski", "999999999", "jan@gmail.com"));
+    app.getContactHelper().fillContactForm(new ContactData("Jan", "Kwiatkowski", "999999999", "jan@gmail.com", null),false);
     app.getContactHelper().submitContactEdition();
     app.getNavigationHelper().gotoToHomePage();
   }

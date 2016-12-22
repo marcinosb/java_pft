@@ -14,14 +14,30 @@ public class NavigationHelper extends BaseHelper {
   }
 
   public void gotoGroupPage() {
+    if( isElementPresent(By.tagName("h1"))
+            && wd.findElement(By.tagName("h1")).getText().equals("Grupy")
+            && isElementPresent(By.name("new"))) {
+     return;
+    }
     click(By.linkText("grupy"));
   }
 
   public void gotoContactPage() {
+    if( isElementPresent(By.tagName("h1"))
+      && wd.findElement(By.tagName("h1")).getText().equals("Edytuj / dodaj wpis do książki adresowej")) {
+      return;
+    }
     click(By.linkText("nowy wpis"));
   }
 
   public void gotoToHomePage() {
+    if(isElementPresent(By.id("maintable"))) {
+      return;
+    }
     click(By.linkText("home page"));
   }
+
+
 }
+
+
