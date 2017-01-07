@@ -1,12 +1,14 @@
 package ru.stqa.addressbook.appmanager;
 
 import org.openqa.selenium.By;
-import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.addressbook.model.ContactData;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by user on 13.12.2016.
@@ -60,5 +62,21 @@ public class ContactHelper extends BaseHelper {
 
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//input[@name='selected[]']"));
+  }
+
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<ContactData>();
+    List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry"));
+    int i = 0;
+    for(WebElement element : elements){
+
+      String firstName = element.findElement(By.cssSelector(":nth-child(2)")).getText();
+      String lastName = element.findElement(By.cssSelector(":nth-child(3)")).getText();
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+
+      ContactData contact = new ContactData(id, firstName, lastName, null, null, null);
+      contacts.add(contact);
+    }
+    return contacts;
   }
 }

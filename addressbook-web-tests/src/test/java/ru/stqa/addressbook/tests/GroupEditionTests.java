@@ -4,7 +4,6 @@ import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.addressbook.model.GroupData;
 
-import java.nio.file.attribute.GroupPrincipal;
 import java.util.*;
 
 /**
