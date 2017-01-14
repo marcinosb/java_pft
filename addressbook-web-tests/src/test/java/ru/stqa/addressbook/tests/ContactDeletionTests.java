@@ -12,7 +12,7 @@ import java.util.List;
  * Created by user on 14.12.2016.
  */
 public class ContactDeletionTests extends TestBase {
-  @Test
+  @Test (enabled = false)
   public void testContactDeletion() {
     if(! app.getContactHelper().isThereAContact()) {
       app.getNavigationHelper().gotoContactPage();
