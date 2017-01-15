@@ -3,7 +3,6 @@ package ru.stqa.addressbook.tests;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 import ru.stqa.addressbook.model.ContactData;
-import ru.stqa.addressbook.model.GroupData;
 
 import java.util.Comparator;
 import java.util.List;
@@ -15,14 +14,14 @@ public class ContactDeletionTests extends TestBase {
   @Test (enabled = false)
   public void testContactDeletion() {
     if(! app.getContactHelper().isThereAContact()) {
-      app.getNavigationHelper().gotoContactPage();
+      app.goTo().gotoContactPage();
       app.getContactHelper().createContact(new ContactData("Alan", "Alan", "111111111", "alan@alan.com", "test1"));
     }
-    app.getNavigationHelper().gotoToHomePage();
+    app.goTo().gotoToHomePage();
     List<ContactData> before = app.getContactHelper().getContactList();
     app.getContactHelper().selectContact();
     app.getContactHelper().deleteSelectedContacts();
-    app.getNavigationHelper().gotoToHomePage();
+    app.goTo().gotoToHomePage();
     List<ContactData> after = app.getContactHelper().getContactList();
 
     Assert.assertEquals(after.size(), before.size() - 1);
