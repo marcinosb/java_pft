@@ -4,46 +4,15 @@ package ru.stqa.addressbook.model;
  * Created by user on 13.12.2016.
  */
 public class ContactData {
-  private int id;
-  private final String firstName;
-  private final String lastName;
-  private final String phoneNumber;
-  private final String emailAddress;
+  private int id = Integer.MAX_VALUE;
+  private String firstName;
+  private String lastName;
+  private String phoneNumber;
+  private String emailAddress;
   private String group;
-
-  public ContactData(String firstName, String lastName, String phoneNumber, String emailAddress, String group) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.phoneNumber = phoneNumber;
-    this.emailAddress = emailAddress;
-    this.group = group;
-    this.id = Integer.MAX_VALUE;
-  }
-
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id=" + id +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            '}';
-  }
-
-  public ContactData(int id, String firstName, String lastName, String phoneNumber, String emailAddress, String group) {
-    this.firstName = firstName;
-    this.lastName = lastName;
-    this.phoneNumber = phoneNumber;
-    this.emailAddress = emailAddress;
-    this.group = group;
-    this.id = id;
-  }
 
   public int getId() {
     return id;
-  }
-
-  public void setId(int id) {
-    this.id = id;
   }
 
   public String getFirstName() {
@@ -66,6 +35,36 @@ public class ContactData {
     return group;
   }
 
+  public ContactData withFirstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
+  public ContactData withLastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
+  public ContactData withPhoneNumber(String emailAddress) {
+    this.emailAddress = emailAddress;
+    return this;
+  }
+
+  public ContactData withEmailAddress(String emailAddress) {
+    this.emailAddress = emailAddress;
+    return this;
+  }
+
+  public ContactData withId(int id) {
+    this.id = id;
+    return this;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
@@ -83,5 +82,15 @@ public class ContactData {
     result = 31 * result + (lastName != null ? lastName.hashCode() : 0);
     return result;
   }
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            '}';
+  }
+
 }
 
