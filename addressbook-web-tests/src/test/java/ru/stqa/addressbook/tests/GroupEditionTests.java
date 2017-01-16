@@ -1,14 +1,9 @@
 package ru.stqa.addressbook.tests;
 
-import org.hamcrest.CoreMatchers;
-import org.hamcrest.junit.MatcherAssert;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.addressbook.model.GroupData;
 import ru.stqa.addressbook.model.Groups;
-
-import java.util.*;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.junit.MatcherAssert.assertThat;
@@ -24,7 +19,7 @@ public class GroupEditionTests extends TestBase{
     }
   }
 
-  @Test
+  @Test (enabled = false)
   public void testGroupEdition() {
     Groups before = app.group().all();
     GroupData modifiedGroup = before.iterator().next();

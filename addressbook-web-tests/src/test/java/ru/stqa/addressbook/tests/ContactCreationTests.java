@@ -7,39 +7,25 @@ import ru.stqa.addressbook.model.ContactData;
 import java.util.Comparator;
 import java.util.List;
 
-/**
- * Created by user on 13.12.2016.
- */
 public class ContactCreationTests extends TestBase {
 
-  @Test (enabled = false)
+  @Test
   public void testContactCreation() {
-    app.goTo().gotoToHomePage();
-    List<ContactData> before = app.getContactHelper().getContactList();
-    app.goTo().gotoContactPage();
+    app.goTo().homePage();
+    List<ContactData> before = app.contact().list();
+    app.goTo().contactPage();
     ContactData contact = new ContactData("Andrzej", "Andrzej", "123456789", "marcinosb@gmail.com", "test1");
-    app.getContactHelper().fillContactForm(contact, true);
-    app.getContactHelper().submitContactCreation();
-    app.goTo().gotoToHomePage();
-    List<ContactData> after = app.getContactHelper().getContactList();
-
+    app.contact().create(contact);
+    List<ContactData> after = app.contact().list();
     Assert.assertEquals(after.size(), before.size() + 1  );
-
     before.add(contact);
     Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
     before.sort(byId);
     after.sort(byId);
-
-    for(ContactData c : before){
-      System.out.println(c.getId() + " " + c.getFirstName() + " " + c.getLastName());
-    }
-
-    for(ContactData c : after){
-      System.out.println(c.getId() + " " + c.getFirstName() + " " + c.getLastName());
-    }
-
     Assert.assertEquals(before, after);
   }
+
+
 }
 
 

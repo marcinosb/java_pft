@@ -8,9 +8,6 @@ import org.openqa.selenium.remote.BrowserType;
 
 import java.util.concurrent.TimeUnit;
 
-/**
- * Created by user on 13.12.2016.
- */
 public class ApplicationManager {
 
   WebDriver wd;
@@ -20,11 +17,9 @@ public class ApplicationManager {
   private ContactHelper contactHelper;
   private String browser;
 
-
   public ApplicationManager(String browser){
     this.browser = browser;
   }
-
 
   public void init() {
     if(browser.equals(BrowserType.FIREFOX)){
@@ -56,7 +51,7 @@ public class ApplicationManager {
     return navigationHelper;
   }
 
-  public ContactHelper getContactHelper() {
+  public ContactHelper contact() {
     return contactHelper;
   }
 }

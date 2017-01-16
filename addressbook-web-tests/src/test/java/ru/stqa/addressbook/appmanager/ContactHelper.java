@@ -10,9 +10,6 @@ import ru.stqa.addressbook.model.ContactData;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by user on 13.12.2016.
- */
 public class ContactHelper extends BaseHelper {
 
   public ContactHelper(WebDriver wd) {
@@ -55,28 +52,46 @@ public class ContactHelper extends BaseHelper {
     click(By.xpath("//input[@type='submit']"));
   }
 
-  public void createContact(ContactData contact) {
-    fillContactForm(contact, true);
-    submitContactCreation();
-  }
-
   public boolean isThereAContact() {
     return isElementPresent(By.xpath("//input[@name='selected[]']"));
   }
 
-  public List<ContactData> getContactList() {
+  public List<ContactData> list() {
     List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry"));
-    int i = 0;
     for(WebElement element : elements){
-
       String firstName = element.findElement(By.cssSelector(":nth-child(2)")).getText();
       String lastName = element.findElement(By.cssSelector(":nth-child(3)")).getText();
       int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
-
       ContactData contact = new ContactData(id, firstName, lastName, null, null, null);
       contacts.add(contact);
     }
     return contacts;
+  }
+
+  public void delete() {
+    selectContact();
+    deleteSelectedContacts();
+    returnToHomePage();
+  }
+
+  public void create(ContactData contact) {
+    fillContactForm(contact, true);
+    submitContactCreation();
+    returnToHomePage();
+  }
+
+  public void modify(ContactData contact) {
+    editContact();
+    fillContactForm(contact,false);
+    submitContactEdition();
+    returnToHomePage();
+  }
+
+  public void returnToHomePage() {
+    if(isElementPresent(By.id("maintable"))) {
+      return;
+    }
+    click(By.linkText("strona główna"));
   }
 }
