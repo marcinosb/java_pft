@@ -3,15 +3,13 @@ package ru.stqa.addressbook.appmanager;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.firefox.FirefoxDriver;
 import ru.stqa.addressbook.model.GroupData;
+import ru.stqa.addressbook.model.Groups;
 
-import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
-/**
- * Created by user on 13.12.2016.
- */
 public class GroupHelper extends BaseHelper {
 
   public GroupHelper(WebDriver wd) {
@@ -36,8 +34,8 @@ public class GroupHelper extends BaseHelper {
     click(By.name("new"));
   }
 
-  public void selectGroup(int index) {
-    wd.findElements(By.name("selected[]")).get(index).click();
+  public void selectGroupById(int id) {
+    wd.findElement(By.cssSelector("input[value='"+ id +"']")).click();
   }
 
   public void deleteSelectedGroups() {
@@ -52,7 +50,6 @@ public class GroupHelper extends BaseHelper {
     click(By.name("update"));
   }
 
-
   public void create(GroupData group) {
     initGroupCreation();
     fillGroupForm(group);
@@ -60,14 +57,9 @@ public class GroupHelper extends BaseHelper {
     returnToGroupPage();
 
   }
-  public void delete(int index) {
-    selectGroup(index);
-    deleteSelectedGroups();
-    returnToGroupPage();
-  }
 
-  public void modify(int index, GroupData group) {
-    selectGroup(index);
+  public void modify(GroupData group) {
+    selectGroupById(group.getId());
     editSelectedGroups();
     fillGroupForm(group);
     submitGroupEdition();
@@ -83,8 +75,8 @@ public class GroupHelper extends BaseHelper {
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<GroupData> list() {
-    List<GroupData> groups = new ArrayList<GroupData>();
+  public Groups all() {
+    Groups groups = new Groups();
     List<WebElement> elements = wd.findElements(By.cssSelector("span.group"));
     for(WebElement element : elements){
       String name = element.getText();
@@ -93,7 +85,11 @@ public class GroupHelper extends BaseHelper {
 
     }
     return groups;
+  }
 
-
+  public void delete(GroupData group) {
+    selectGroupById(group.getId());
+    deleteSelectedGroups();
+    returnToGroupPage();
   }
 }
