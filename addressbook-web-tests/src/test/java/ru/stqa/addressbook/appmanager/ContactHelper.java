@@ -6,8 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
 import ru.stqa.addressbook.model.ContactData;
+import ru.stqa.addressbook.model.Contacts;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class ContactHelper extends BaseHelper {
@@ -38,8 +38,13 @@ public class ContactHelper extends BaseHelper {
     click(By.xpath("//input[@name='selected[]']"));
   }
 
+  private WebElement selectContactById(int id) {
+    WebElement checkBox = wd.findElement(By.cssSelector("input[value='"+id+"']"));
+    checkBox.click();
+    return checkBox;
+  }
+
   public void deleteSelectedContacts() {
-    //Remove first entry from the top
     click(By.xpath("//input[@value='Usuń']"));
     wd.switchTo().alert().accept();
   }
@@ -56,8 +61,8 @@ public class ContactHelper extends BaseHelper {
     return isElementPresent(By.xpath("//input[@name='selected[]']"));
   }
 
-  public List<ContactData> list() {
-    List<ContactData> contacts = new ArrayList<ContactData>();
+  public Contacts all() {
+    Contacts contacts = new Contacts();
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name=entry"));
     for(WebElement element : elements){
       String firstName = element.findElement(By.cssSelector(":nth-child(2)")).getText();
@@ -68,12 +73,6 @@ public class ContactHelper extends BaseHelper {
     return contacts;
   }
 
-  public void delete() {
-    selectContact();
-    deleteSelectedContacts();
-    returnToHomePage();
-  }
-
   public void create(ContactData contact) {
     fillContactForm(contact, true);
     submitContactCreation();
@@ -81,10 +80,17 @@ public class ContactHelper extends BaseHelper {
   }
 
   public void modify(ContactData contact) {
-    editContact();
+    selectContactById(contact.getId()).findElement(By.xpath("../../td[8]/a")).click();
     fillContactForm(contact,false);
     submitContactEdition();
     returnToHomePage();
+  }
+
+  public void delete(ContactData contact) {
+    selectContactById(contact.getId());
+    deleteSelectedContacts();
+    returnToHomePage();
+
   }
 
   public void returnToHomePage() {

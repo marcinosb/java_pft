@@ -1,5 +1,7 @@
 package ru.stqa.addressbook.tests;
 
+import org.hamcrest.CoreMatchers;
+import org.hamcrest.junit.MatcherAssert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.addressbook.model.GroupData;
@@ -18,7 +20,7 @@ public class GroupDeletionTests extends TestBase{
     }
   }
 
-  @Test (enabled = false)
+  @Test
   public void testGroupDeletion() {
     Groups before = app.group().all();
     GroupData deletedGroup = before.iterator().next();

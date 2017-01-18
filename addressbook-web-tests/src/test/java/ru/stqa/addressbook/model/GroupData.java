@@ -61,7 +61,6 @@ public class GroupData {
     return this;
   }
 
-
   @Override
   public String toString() {
     return "GroupData{" +
@@ -69,5 +68,4 @@ public class GroupData {
             ", name='" + name + '\'' +
             '}';
   }
-
 }

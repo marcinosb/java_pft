@@ -19,7 +19,7 @@ public class GroupEditionTests extends TestBase{
     }
   }
 
-  @Test (enabled = false)
+  @Test
   public void testGroupEdition() {
     Groups before = app.group().all();
     GroupData modifiedGroup = before.iterator().next();
