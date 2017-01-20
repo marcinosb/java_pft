@@ -1,15 +1,112 @@
 package ru.stqa.addressbook.model;
 
-/**
- * Created by user on 13.12.2016.
- */
 public class ContactData {
   private int id = Integer.MAX_VALUE;
   private String firstName;
   private String lastName;
-  private String phoneNumber;
   private String emailAddress;
   private String group;
+  private String homePhone;
+  private String mobilePhone;
+  private String workPhone;
+  private String email;
+  private String email2;
+  private String email3;
+  private String allPhones;
+  private String phoneNumber;
+  private String allEmails;
+  private String address1;
+  private String address2;
+
+  public String getAddress1() {
+    return address1;
+  }
+
+  public ContactData withAddress1(String address1) {
+    this.address1 = address1;
+    return this;
+  }
+
+  public String getAddress2() {
+    return address2;
+  }
+
+  public ContactData withAddress2(String address2) {
+    this.address2 = address2;
+    return this;
+  }
+
+  public String getAllEmails() {
+    return allEmails;
+  }
+
+  public ContactData withAllEmails(String allEmails) {
+    this.allEmails = allEmails;
+    return this;
+  }
+
+  public String getEmail1() {
+    return email;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+  public String getEmail2() {
+    return email2;
+  }
+
+  public ContactData withEmail2(String email2) {
+    this.email2 = email2;
+    return this;
+  }
+
+  public String getEmail3() {
+    return email3;
+  }
+
+  public ContactData withEmail3(String email3) {
+    this.email3 = email3;
+    return this;
+  }
+
+  public String getAllPhones() {
+    return allPhones;
+  }
+
+  public ContactData withAllPhones(String allPhones) {
+    this.allPhones = allPhones;
+    return this;
+  }
+
+  public String getHomePhone() {
+    return homePhone;
+  }
+
+  public ContactData withHomePhone(String homePhone) {
+    this.homePhone = homePhone;
+    return this;
+  }
+
+  public String getMobilePhone() {
+    return mobilePhone;
+  }
+
+  public ContactData withMobilePhone(String mobilePhone) {
+    this.mobilePhone = mobilePhone;
+    return this;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
+  public ContactData withWorkPhone(String workPhone) {
+    this.workPhone = workPhone;
+    return this;
+  }
 
   public int getId() {
     return id;
@@ -21,10 +118,6 @@ public class ContactData {
 
   public String getLastName() {
     return lastName;
-  }
-
-  public String getPhoneNumber() {
-    return phoneNumber;
   }
 
   public String getEmailAddress() {
@@ -61,9 +154,9 @@ public class ContactData {
   }
 
   public ContactData withGroup(String group) {
-    this.group = group;
-    return this;
-  }
+  this.group = group;
+  return this;
+}
 
   @Override
   public boolean equals(Object o) {
@@ -93,6 +186,4 @@ public class ContactData {
             ", lastName='" + lastName + '\'' +
             '}';
   }
-
 }
-
