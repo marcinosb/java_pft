@@ -1,7 +1,10 @@
 package ru.stqa.addressbook.model;
 
+<<<<<<< HEAD
 import com.sun.xml.internal.ws.api.ha.StickyFeature;
 
+=======
+>>>>>>> origin/master
 public class ContactData {
   private int id = Integer.MAX_VALUE;
   private String firstName;
@@ -11,7 +14,11 @@ public class ContactData {
   private String homePhone;
   private String mobilePhone;
   private String workPhone;
+<<<<<<< HEAD
   private String email1;
+=======
+  private String email;
+>>>>>>> origin/master
   private String email2;
   private String email3;
   private String allPhones;
@@ -19,6 +26,7 @@ public class ContactData {
   private String allEmails;
   private String address1;
   private String address2;
+<<<<<<< HEAD
   private String middlename;
   private String nickname;
   private String company;
@@ -169,6 +177,8 @@ public class ContactData {
     this.ayear = ayear;
     return this;
   }
+=======
+>>>>>>> origin/master
 
   public String getAddress1() {
     return address1;
@@ -198,11 +208,19 @@ public class ContactData {
   }
 
   public String getEmail1() {
+<<<<<<< HEAD
     return email1;
   }
 
   public ContactData withEmail(String email) {
     this.email1 = email;
+=======
+    return email;
+  }
+
+  public ContactData withEmail(String email) {
+    this.email = email;
+>>>>>>> origin/master
     return this;
   }
 
