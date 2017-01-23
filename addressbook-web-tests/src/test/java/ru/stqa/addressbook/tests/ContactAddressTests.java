@@ -3,16 +3,14 @@ package ru.stqa.addressbook.tests;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ru.stqa.addressbook.model.ContactData;
-import ru.stqa.addressbook.model.Contacts;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.junit.MatcherAssert.assertThat;
-import static org.testng.Assert.assertEquals;
 
-public class ContactDeletionTests extends TestBase {
+public class ContactAddressTests extends TestBase{
 
   @BeforeMethod
-  public void ensurePreconditions(){
+  public void ensurePreconditions() {
     if(! app.contact().isThereAContact()) {
       app.goTo().contactPage();
       app.contact().create(new ContactData().withFirstName("Precondition").withMiddleName("Precondition")
@@ -23,15 +21,20 @@ public class ContactDeletionTests extends TestBase {
               .withPrivatephone("9876544321").withNotes("no notes").withGroup("test1"));
     }
   }
-
   @Test
-  public void testContactDeletion() {
+  public void testContactAddress(){
     app.goTo().homePage();
-    Contacts before = app.contact().all();
-    ContactData deletedContact = before.iterator().next();
-    app.contact().delete(deletedContact);
-    assertEquals(app.contact().count(), before.size() - 1 );
-    Contacts after = app.contact().all();
-    assertThat(after, equalTo(before.without(deletedContact)));
+    ContactData contact = app.contact().all().iterator().next();
+    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
+
+    assertThat(cleaned(contact.getAddress1()), equalTo(mergeAddress(contactInfoFromEditForm)));
+  }
+
+  private String mergeAddress(ContactData contact) {
+    return cleaned(contact.getAddress1());
+  }
+
+  public static String cleaned(String address){
+    return address.replaceAll("\\s+", " ");
   }
 }

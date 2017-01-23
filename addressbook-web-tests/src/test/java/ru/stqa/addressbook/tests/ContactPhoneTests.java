@@ -1,16 +1,16 @@
 package ru.stqa.addressbook.tests;
 
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.annotations.BeforeMethod;
 import ru.stqa.addressbook.model.ContactData;
-import ru.stqa.addressbook.model.Contacts;
+
+import java.util.Arrays;
+import java.util.stream.Collectors;
 
 import static org.hamcrest.CoreMatchers.equalTo;
 import static org.hamcrest.junit.MatcherAssert.assertThat;
-import static org.testng.Assert.assertEquals;
 
-public class ContactDeletionTests extends TestBase {
-
+public class ContactPhoneTests extends TestBase {
   @BeforeMethod
   public void ensurePreconditions(){
     if(! app.contact().isThereAContact()) {
@@ -20,18 +20,27 @@ public class ContactDeletionTests extends TestBase {
               .withAddress1("Al. Mickiewicza 20-123 Kraków").withHomePhone("123456789").withMobilePhone("500500500")
               .withWorkPhone("129009001").withFax("123456789").withEmail("per1@pre.com").withEmail2("pre2@re.com")
               .withEmail3("pre3@pre.com").withHomePage("www.precondition.com").withAddress2("Address 2")
-              .withPrivatephone("9876544321").withNotes("no notes").withGroup("test1"));
+              .withPrivatephone("9876544321").withNotes("no notes").withGroup(null));
     }
   }
 
   @Test
-  public void testContactDeletion() {
+  public void testContactPhones(){
     app.goTo().homePage();
-    Contacts before = app.contact().all();
-    ContactData deletedContact = before.iterator().next();
-    app.contact().delete(deletedContact);
-    assertEquals(app.contact().count(), before.size() - 1 );
-    Contacts after = app.contact().all();
-    assertThat(after, equalTo(before.without(deletedContact)));
+    ContactData contact = app.contact().all().iterator().next();
+    ContactData contactInfoFromEditForm = app.contact().infoFromEditForm(contact);
+
+    assertThat(contact.getAllPhones(), equalTo(mergePhones(contactInfoFromEditForm)));
+  }
+
+  private String mergePhones(ContactData contact) {
+    return Arrays.asList(contact.getHomePhone(), contact.getMobilePhone(), contact.getWorkPhone(), contact.getPrivatephone())
+            .stream().filter((s) -> ! s.equals(""))
+            .map(ContactPhoneTests::cleaned)
+            .collect(Collectors.joining("\n"));
+  }
+
+  public static String cleaned(String phone){
+    return phone.replaceAll("\\s", "").replaceAll("[-()]","");
   }
 }

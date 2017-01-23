@@ -1,34 +1,50 @@
 package ru.stqa.addressbook.tests;
 
-import org.testng.Assert;
 import org.testng.annotations.Test;
-import ru.stqa.addressbook.model.ContactData;
+        import ru.stqa.addressbook.model.ContactData;
+        import ru.stqa.addressbook.model.Contacts;
 
-import java.util.Comparator;
-import java.util.List;
+        import static org.hamcrest.CoreMatchers.equalTo;
+        import static org.hamcrest.junit.MatcherAssert.assertThat;
 
 public class ContactCreationTests extends TestBase {
 
   @Test
   public void testContactCreation() {
     app.goTo().homePage();
-    List<ContactData> before = app.contact().list();
+    Contacts before = app.contact().all();
     app.goTo().contactPage();
     ContactData contact = new ContactData()
-            .withFirstName("Andrzej").withLastName("Andrzej").withPhoneNumber("123456789")
-            .withEmailAddress("marcinosb@gmail.com").withGroup("test1");
+            .withFirstName("Piotr")
+            .withMiddleName("Miroslaw")
+            .withLastName("Piotrowski")
+            .withNickname("siwy")
+            .withCompany("Comarch")
+            .withTitle("Pan")
+            .withAddress1("ul. Glogera, 31-222 Kraków")
+            .withHomePhone("123456789")
+            .withMobilePhone("500500500")
+            .withWorkPhone("12400400400")
+            .withFax("900900900")
+            .withEmail("piotr@piotr.com")
+            .withEmail2("piotr2@piotr.com")
+            .withEmail3("piotr3@piotr.com")
+            .withHomePage("www.piotr.com")
+            .withBday("10")
+            .withBmonth("Maj")
+            .withByear("2000")
+            .withAday("20")
+            .withAmonth("Luty")
+            .withAyear("1900")
+            .withAddress2("Wlokietka 135/100 30-100 Kraków")
+            .withPrivatephone("8989898989")
+            .withNotes("none")
+            .withGroup("test1");
 
     app.contact().create(contact);
-    List<ContactData> after = app.contact().list();
-    Assert.assertEquals(after.size(), before.size() + 1  );
-    before.add(contact);
-    Comparator<? super ContactData> byId = (c1, c2) -> Integer.compare(c1.getId(), c2.getId());
-    before.sort(byId);
-    after.sort(byId);
-    Assert.assertEquals(before, after);
+    assertThat(app.contact().count(), equalTo(before.size() + 1));
+    Contacts after = app.contact().all();
+    assertThat(after, equalTo(
+            before.withAdded(contact.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
   }
-
-
 }
-
-
