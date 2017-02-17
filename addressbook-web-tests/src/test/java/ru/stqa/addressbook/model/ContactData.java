@@ -1,22 +1,218 @@
 package ru.stqa.addressbook.model;
 
+import com.google.gson.annotations.Expose;
+import com.thoughtworks.xstream.annotations.XStreamAlias;
+import com.thoughtworks.xstream.annotations.XStreamOmitField;
+
+import java.io.File;
+@XStreamAlias("contact")
 public class ContactData {
+  @XStreamOmitField
   private int id = Integer.MAX_VALUE;
+  @Expose
   private String firstName;
+  @Expose
   private String lastName;
+  @Expose
   private String emailAddress;
+  @Expose
   private String group;
+  @Expose
   private String homePhone;
+  @Expose
   private String mobilePhone;
+  @Expose
   private String workPhone;
-  private String email;
+  @Expose
+  private String email1;
+  @Expose
   private String email2;
+  @Expose
   private String email3;
+  @XStreamOmitField
   private String allPhones;
-  private String phoneNumber;
+  @XStreamOmitField
   private String allEmails;
+  @Expose
   private String address1;
+  @Expose
   private String address2;
+  @Expose
+  private String middlename;
+  @Expose
+  private String nickname;
+  @Expose
+  private String company;
+  @Expose
+  private String title;
+  @Expose
+  private String fax;
+  @Expose
+  private String homepage;
+  @Expose
+  private String privatephone;
+  @Expose
+  private String bday;
+  @Expose
+  private String bmonth;
+  @Expose
+  private String byear;
+  @Expose
+  private String aday;
+  @Expose
+  private String amonth;
+  @Expose
+  private String ayear;
+  @Expose
+  private String notes;
+  @XStreamOmitField
+  private String alldetails;
+  @Expose
+  private File photo;
+
+  public File getPhoto() {
+    return photo;
+  }
+
+  public ContactData withPhoto(File photo) {
+    this.photo = photo;
+    return this;
+  }
+
+  public String getAlldetails() {
+    return alldetails;
+  }
+
+  public ContactData withAllDetails(String alldetails) {
+    this.alldetails = alldetails;
+    return this;
+  }
+
+  public String getNotes() {
+    return notes;
+  }
+
+  public ContactData withNotes(String notes) {
+    this.notes = notes;
+    return this;
+  }
+
+  public String getMiddlename() {
+    return middlename;
+  }
+
+  public ContactData withMiddleName(String middlename) {
+    this.middlename = middlename;
+    return this;
+  }
+
+  public String getNickname() {
+    return nickname;
+  }
+
+  public ContactData withNickname(String nickname) {
+    this.nickname = nickname;
+    return this;
+  }
+
+  public String getCompany() {
+    return company;
+  }
+
+  public ContactData withCompany(String company) {
+    this.company = company;
+    return this;
+  }
+
+  public String getTitle() {
+    return title;
+  }
+
+  public ContactData withTitle(String title) {
+    this.title = title;
+    return this;
+  }
+
+  public String getFax() {
+    return fax;
+  }
+
+  public ContactData withFax(String fax) {
+    this.fax = fax;
+    return this;
+  }
+
+  public String getHomepage() {
+    return homepage;
+  }
+
+  public ContactData withHomePage(String homepage) {
+    this.homepage = homepage;
+    return this;
+  }
+
+  public String getPrivatephone() {
+    return privatephone;
+  }
+
+  public ContactData withPrivatephone(String privatephone) {
+    this.privatephone = privatephone;
+    return this;
+  }
+
+  public String getBday() {
+    return bday;
+  }
+
+  public ContactData withBday(String bday) {
+    this.bday = bday;
+    return this;
+  }
+
+  public String getBmonth() {
+    return bmonth;
+  }
+
+  public ContactData withBmonth(String bmonth) {
+    this.bmonth = bmonth;
+    return this;
+  }
+
+  public String getByear() {
+    return byear;
+  }
+
+  public ContactData withByear(String byear) {
+    this.byear = byear;
+    return this;
+  }
+
+  public String getAday() {
+    return aday;
+  }
+
+  public ContactData withAday(String aday) {
+    this.aday = aday;
+    return this;
+  }
+
+  public String getAmonth() {
+    return amonth;
+  }
+
+  public ContactData withAmonth(String amonth) {
+    this.amonth = amonth;
+    return this;
+  }
+
+  public String getAyear() {
+    return ayear;
+  }
+
+  public ContactData withAyear(String ayear) {
+    this.ayear = ayear;
+    return this;
+  }
 
   public String getAddress1() {
     return address1;
@@ -46,11 +242,11 @@ public class ContactData {
   }
 
   public String getEmail1() {
-    return email;
+    return email1;
   }
 
-  public ContactData withEmail(String email) {
-    this.email = email;
+  public ContactData withEmail1(String email) {
+    this.email1 = email;
     return this;
   }
 
@@ -138,8 +334,8 @@ public class ContactData {
     return this;
   }
 
-  public ContactData withPhoneNumber(String emailAddress) {
-    this.emailAddress = emailAddress;
+  public ContactData withPhoneNumber(String homephone) {
+    this.homePhone = homephone;
     return this;
   }
 

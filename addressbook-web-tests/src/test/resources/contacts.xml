@@ -1,0 +1,142 @@
+<list>
+  <contact>
+    <firstName>Piotr 0</firstName>
+    <lastName>Piotrowski 0</lastName>
+    <group>test</group>
+    <homePhone>1234567890</homePhone>
+    <mobilePhone>5005005000</mobilePhone>
+    <workPhone>124004004000</workPhone>
+    <email1>piotr0@piotr.com</email1>
+    <email2>piotr20@piotr.com</email2>
+    <email3>piotr30@piotr.com</email3>
+    <address1>ul. Glogera, 31-222 Kraków 0</address1>
+    <address2>Wlokietka 135/100 30-100 Kraków</address2>
+    <middlename>Miroslaw 0</middlename>
+    <nickname>siwy 0</nickname>
+    <company>Comarch 0</company>
+    <title>Pan 0</title>
+    <fax>9009009000</fax>
+    <homepage>www.piotr0.com</homepage>
+    <privatephone>89898989890</privatephone>
+    <bday>10</bday>
+    <bmonth>Maj</bmonth>
+    <byear>2000</byear>
+    <aday>20</aday>
+    <amonth>Luty</amonth>
+    <ayear>1900</ayear>
+    <notes>none0</notes>
+    <photo>.\src\test\resources\hqdefault.jpg</photo>
+  </contact>
+  <contact>
+    <firstName>Piotr 1</firstName>
+    <lastName>Piotrowski 1</lastName>
+    <group>test</group>
+    <homePhone>1234567891</homePhone>
+    <mobilePhone>5005005001</mobilePhone>
+    <workPhone>124004004001</workPhone>
+    <email1>piotr1@piotr.com</email1>
+    <email2>piotr21@piotr.com</email2>
+    <email3>piotr31@piotr.com</email3>
+    <address1>ul. Glogera, 31-222 Kraków 1</address1>
+    <address2>Wlokietka 135/100 30-100 Kraków</address2>
+    <middlename>Miroslaw 1</middlename>
+    <nickname>siwy 1</nickname>
+    <company>Comarch 1</company>
+    <title>Pan 1</title>
+    <fax>9009009001</fax>
+    <homepage>www.piotr1.com</homepage>
+    <privatephone>89898989891</privatephone>
+    <bday>10</bday>
+    <bmonth>Maj</bmonth>
+    <byear>2000</byear>
+    <aday>20</aday>
+    <amonth>Luty</amonth>
+    <ayear>1900</ayear>
+    <notes>none1</notes>
+    <photo>.\src\test\resources\hqdefault.jpg</photo>
+  </contact>
+  <contact>
+    <firstName>Piotr 2</firstName>
+    <lastName>Piotrowski 2</lastName>
+    <group>test</group>
+    <homePhone>1234567892</homePhone>
+    <mobilePhone>5005005002</mobilePhone>
+    <workPhone>124004004002</workPhone>
+    <email1>piotr2@piotr.com</email1>
+    <email2>piotr22@piotr.com</email2>
+    <email3>piotr32@piotr.com</email3>
+    <address1>ul. Glogera, 31-222 Kraków 2</address1>
+    <address2>Wlokietka 135/100 30-100 Kraków</address2>
+    <middlename>Miroslaw 2</middlename>
+    <nickname>siwy 2</nickname>
+    <company>Comarch 2</company>
+    <title>Pan 2</title>
+    <fax>9009009002</fax>
+    <homepage>www.piotr2.com</homepage>
+    <privatephone>89898989892</privatephone>
+    <bday>10</bday>
+    <bmonth>Maj</bmonth>
+    <byear>2000</byear>
+    <aday>20</aday>
+    <amonth>Luty</amonth>
+    <ayear>1900</ayear>
+    <notes>none2</notes>
+    <photo>.\src\test\resources\hqdefault.jpg</photo>
+  </contact>
+  <contact>
+    <firstName>Piotr 3</firstName>
+    <lastName>Piotrowski 3</lastName>
+    <group>test</group>
+    <homePhone>1234567893</homePhone>
+    <mobilePhone>5005005003</mobilePhone>
+    <workPhone>124004004003</workPhone>
+    <email1>piotr3@piotr.com</email1>
+    <email2>piotr23@piotr.com</email2>
+    <email3>piotr33@piotr.com</email3>
+    <address1>ul. Glogera, 31-222 Kraków 3</address1>
+    <address2>Wlokietka 135/100 30-100 Kraków</address2>
+    <middlename>Miroslaw 3</middlename>
+    <nickname>siwy 3</nickname>
+    <company>Comarch 3</company>
+    <title>Pan 3</title>
+    <fax>9009009003</fax>
+    <homepage>www.piotr3.com</homepage>
+    <privatephone>89898989893</privatephone>
+    <bday>10</bday>
+    <bmonth>Maj</bmonth>
+    <byear>2000</byear>
+    <aday>20</aday>
+    <amonth>Luty</amonth>
+    <ayear>1900</ayear>
+    <notes>none3</notes>
+    <photo>.\src\test\resources\hqdefault.jpg</photo>
+  </contact>
+  <contact>
+    <firstName>Piotr 4</firstName>
+    <lastName>Piotrowski 4</lastName>
+    <group>test</group>
+    <homePhone>1234567894</homePhone>
+    <mobilePhone>5005005004</mobilePhone>
+    <workPhone>124004004004</workPhone>
+    <email1>piotr4@piotr.com</email1>
+    <email2>piotr24@piotr.com</email2>
+    <email3>piotr34@piotr.com</email3>
+    <address1>ul. Glogera, 31-222 Kraków 4</address1>
+    <address2>Wlokietka 135/100 30-100 Kraków</address2>
+    <middlename>Miroslaw 4</middlename>
+    <nickname>siwy 4</nickname>
+    <company>Comarch 4</company>
+    <title>Pan 4</title>
+    <fax>9009009004</fax>
+    <homepage>www.piotr4.com</homepage>
+    <privatephone>89898989894</privatephone>
+    <bday>10</bday>
+    <bmonth>Maj</bmonth>
+    <byear>2000</byear>
+    <aday>20</aday>
+    <amonth>Luty</amonth>
+    <ayear>1900</ayear>
+    <notes>none4</notes>
+    <photo>.\src\test\resources\hqdefault.jpg</photo>
+  </contact>
+</list>
