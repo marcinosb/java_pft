@@ -79,6 +79,7 @@ public class ContactData {
     return this;
   }
 
+
   public String getAlldetails() {
     return alldetails;
   }
