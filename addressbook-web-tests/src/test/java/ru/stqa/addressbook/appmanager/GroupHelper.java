@@ -54,7 +54,6 @@ public class GroupHelper extends BaseHelper {
     submitGroupCreation();
     groupCache = null;
     returnToGroupPage();
-
   }
 
   public void modify(GroupData group) {

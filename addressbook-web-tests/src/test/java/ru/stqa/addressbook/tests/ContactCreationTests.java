@@ -3,13 +3,10 @@ package ru.stqa.addressbook.tests;
 import com.google.common.reflect.TypeToken;
 import com.google.gson.Gson;
 import com.thoughtworks.xstream.XStream;
-import org.hamcrest.MatcherAssert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.addressbook.model.ContactData;
 import ru.stqa.addressbook.model.Contacts;
-import ru.stqa.addressbook.model.GroupData;
-import ru.stqa.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -28,7 +25,7 @@ public class ContactCreationTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> validContactsFromXML() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader(new FileReader("./src/test/resources/contacts.xml"));
+    BufferedReader reader = new BufferedReader(new FileReader(app.getData().getProperty("source.contactsXML")));
     String xml = "";
     String line = reader.readLine();
     while(line != null){
@@ -44,7 +41,7 @@ public class ContactCreationTests extends TestBase {
   @DataProvider
   public Iterator<Object[]> validContactsFromJSON() throws IOException {
     List<Object[]> list = new ArrayList<Object[]>();
-    BufferedReader reader = new BufferedReader(new FileReader("./src/test/resources/contacts.json"));
+    BufferedReader reader = new BufferedReader(new FileReader(app.getData().getProperty("source.contactsJSON")));
     String json = "";
     String line = reader.readLine();
     while(line != null){

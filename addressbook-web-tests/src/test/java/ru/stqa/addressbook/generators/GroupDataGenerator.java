@@ -8,7 +8,6 @@ import com.google.gson.GsonBuilder;
 import com.thoughtworks.xstream.XStream;
 import ru.stqa.addressbook.model.GroupData;
 
-import javax.xml.stream.XMLStreamConstants;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -55,29 +54,26 @@ public class GroupDataGenerator {
   private void saveAsJSON(List<GroupData> groups, File file) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(groups);
-    Writer writer = new FileWriter(file);
-    writer.write(json);
-    writer.close();
-
+    try (Writer writer = new FileWriter(file)) {
+      writer.write(json);
+    }
   }
 
   private void saveAsXML(List<GroupData> groups, File file) throws IOException {
     XStream xStream = new XStream();
     xStream.processAnnotations(GroupData.class);
     String xml = xStream.toXML(groups);
-    Writer writer = new FileWriter(file);
-    writer.write(xml);
-    writer.close();
-
-
+    try ( Writer writer = new FileWriter(file)) {
+      writer.write(xml);
+    }
   }
 
   private void saveAsCSV(List<GroupData> groups, File file) throws IOException {
-     Writer writer = new FileWriter(file);
-     for(GroupData group: groups){
-       writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
-     }
-     writer.close();
+    try( Writer writer = new FileWriter(file)) {
+      for(GroupData group: groups){
+        writer.write(String.format("%s;%s;%s\n", group.getName(), group.getHeader(), group.getFooter()));
+      }
+    }
   }
 
   private List<GroupData> generateGroups(int count) {

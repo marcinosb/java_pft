@@ -17,7 +17,7 @@ public class ContactHelper extends BaseHelper {
   }
 
   public void submitContactCreation() {
-    click(By.xpath("//div[@id='content']/form/input[21]"));
+    click(By.xpath("//input[@name='submit']"));
   }
 
   public void fillContactForm(ContactData contactData, boolean creation) {
@@ -58,7 +58,8 @@ public class ContactHelper extends BaseHelper {
   }
 
   public void deleteSelectedContacts() {
-    click(By.xpath("//input[@value='Usuń']"));
+    //click(By.xpath("//input[@value='Usuń']"));
+    click(By.xpath("//input[@onclick='DeleteSel()']"));
     wd.switchTo().alert().accept();
   }
 
@@ -125,7 +126,8 @@ public class ContactHelper extends BaseHelper {
     if(isElementPresent(By.id("maintable"))) {
       return;
     }
-    click(By.linkText("strona główna"));
+    //click(By.linkText("strona główna"));
+    click(By.xpath("//a[@href='./']"));
   }
 
   public ContactData infoFromEditForm(ContactData contact) {

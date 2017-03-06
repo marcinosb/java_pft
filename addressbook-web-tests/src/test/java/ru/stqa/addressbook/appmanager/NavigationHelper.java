@@ -30,6 +30,7 @@ public class NavigationHelper extends BaseHelper {
     if(isElementPresent(By.id("maintable"))) {
       return;
     }
-    click(By.linkText("strona główna"));
+    //click(By.linkText("strona główna"));
+    click(By.xpath("//a[@href='./']"));
   }
 }

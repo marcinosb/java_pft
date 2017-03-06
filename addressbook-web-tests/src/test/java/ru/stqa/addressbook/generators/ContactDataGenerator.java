@@ -53,52 +53,52 @@ public class ContactDataGenerator {
   private void saveAsJSON(List<ContactData> contacts, File file) throws IOException {
     Gson gson = new GsonBuilder().setPrettyPrinting().excludeFieldsWithoutExposeAnnotation().create();
     String json = gson.toJson(contacts);
-    Writer writer = new FileWriter(file);
-    writer.write(json);
-    writer.close();
+    try( Writer writer = new FileWriter(file)) {
+      writer.write(json);
+    }
   }
 
   private void saveAsXML(List<ContactData> contacts, File file) throws IOException {
     XStream xStream = new XStream();
     xStream.processAnnotations(ContactData.class);
     String xml = xStream.toXML(contacts);
-    Writer writer = new FileWriter(file);
-    writer.write(xml);
-    writer.close();
+    try( Writer writer = new FileWriter(file)) {
+      writer.write(xml);
+    }
   }
 
   private void saveAsCSV(List<ContactData> contacts, File file) throws IOException {
-    Writer writer = new FileWriter(file);
-    for(ContactData contact: contacts){
-      writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;\n"
-              ,contact.getFirstName()
-              ,contact.getMiddlename()
-              ,contact.getLastName()
-              ,contact.getNickname()
-              ,contact.getCompany()
-              ,contact.getTitle()
-              ,contact.getAddress1()
-              ,contact.getHomePhone()
-              ,contact.getMobilePhone()
-              ,contact.getWorkPhone()
-              ,contact.getFax()
-              ,contact.getEmail1()
-              ,contact.getEmail2()
-              ,contact.getEmail3()
-              ,contact.getHomepage()
-              ,contact.getBday()
-              ,contact.getBmonth()
-              ,contact.getByear()
-              ,contact.getAday()
-              ,contact.getAmonth()
-              ,contact.getAyear()
-              ,contact.getAddress2()
-              ,contact.getPrivatephone()
-              ,contact.getNotes()
-              ,contact.getGroup()
-              ,contact.getPhoto()));
+    try (Writer writer = new FileWriter(file)) {
+      for (ContactData contact : contacts) {
+        writer.write(String.format("%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;%s;\n"
+                , contact.getFirstName()
+                , contact.getMiddlename()
+                , contact.getLastName()
+                , contact.getNickname()
+                , contact.getCompany()
+                , contact.getTitle()
+                , contact.getAddress1()
+                , contact.getHomePhone()
+                , contact.getMobilePhone()
+                , contact.getWorkPhone()
+                , contact.getFax()
+                , contact.getEmail1()
+                , contact.getEmail2()
+                , contact.getEmail3()
+                , contact.getHomepage()
+                , contact.getBday()
+                , contact.getBmonth()
+                , contact.getByear()
+                , contact.getAday()
+                , contact.getAmonth()
+                , contact.getAyear()
+                , contact.getAddress2()
+                , contact.getPrivatephone()
+                , contact.getNotes()
+                , contact.getGroup()
+                , contact.getPhoto()));
+      }
     }
-    writer.close();
   }
 
   private List<ContactData> generateContacts(int count) {
