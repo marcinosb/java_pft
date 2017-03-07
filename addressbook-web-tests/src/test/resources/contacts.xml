@@ -18,10 +18,10 @@
     <fax>9009009000</fax>
     <homepage>www.piotr0.com</homepage>
     <privatephone>89898989890</privatephone>
-    <bday>10</bday>
+    <bday>49</bday>
     <bmonth>Maj</bmonth>
     <byear>2000</byear>
-    <aday>20</aday>
+    <aday>50</aday>
     <amonth>Luty</amonth>
     <ayear>1900</ayear>
     <notes>none0</notes>
@@ -46,41 +46,13 @@
     <fax>9009009001</fax>
     <homepage>www.piotr1.com</homepage>
     <privatephone>89898989891</privatephone>
-    <bday>10</bday>
+    <bday>49</bday>
     <bmonth>Maj</bmonth>
     <byear>2000</byear>
-    <aday>20</aday>
+    <aday>50</aday>
     <amonth>Luty</amonth>
     <ayear>1900</ayear>
     <notes>none1</notes>
-    <photo>.\src\test\resources\hqdefault.jpg</photo>
-  </contact>
-  <contact>
-    <firstName>Piotr 2</firstName>
-    <lastName>Piotrowski 2</lastName>
-    <group>test</group>
-    <homePhone>1234567892</homePhone>
-    <mobilePhone>5005005002</mobilePhone>
-    <workPhone>124004004002</workPhone>
-    <email1>piotr2@piotr.com</email1>
-    <email2>piotr22@piotr.com</email2>
-    <email3>piotr32@piotr.com</email3>
-    <address1>ul. Glogera, 31-222 Kraków 2</address1>
-    <address2>Wlokietka 135/100 30-100 Kraków</address2>
-    <middlename>Miroslaw 2</middlename>
-    <nickname>siwy 2</nickname>
-    <company>Comarch 2</company>
-    <title>Pan 2</title>
-    <fax>9009009002</fax>
-    <homepage>www.piotr2.com</homepage>
-    <privatephone>89898989892</privatephone>
-    <bday>10</bday>
-    <bmonth>Maj</bmonth>
-    <byear>2000</byear>
-    <aday>20</aday>
-    <amonth>Luty</amonth>
-    <ayear>1900</ayear>
-    <notes>none2</notes>
     <photo>.\src\test\resources\hqdefault.jpg</photo>
   </contact>
 </list>

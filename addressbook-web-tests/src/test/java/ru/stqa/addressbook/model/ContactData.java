@@ -3,79 +3,139 @@ package ru.stqa.addressbook.model;
 import com.google.gson.annotations.Expose;
 import com.thoughtworks.xstream.annotations.XStreamAlias;
 import com.thoughtworks.xstream.annotations.XStreamOmitField;
+import org.hibernate.annotations.Type;
 
+import javax.persistence.*;
 import java.io.File;
 @XStreamAlias("contact")
+@Entity
+@Table( name = "addressbook")
 public class ContactData {
   @XStreamOmitField
+  @Id
+  @Column (name = "id")
   private int id = Integer.MAX_VALUE;
   @Expose
+  @Column (name = "firstname")
   private String firstName;
   @Expose
+  @Column (name = "lastname")
   private String lastName;
   @Expose
+  @Transient
   private String emailAddress;
   @Expose
+  @Transient
   private String group;
   @Expose
+  @Column (name = "home")
+  @Type(type = "text")
   private String homePhone;
   @Expose
+  @Column (name = "mobile")
+  @Type(type = "text")
   private String mobilePhone;
   @Expose
+  @Column (name = "work")
+  @Type(type = "text")
   private String workPhone;
   @Expose
+  @Column (name = "email")
+  @Type(type = "text")
   private String email1;
   @Expose
+  @Column (name = "email2")
+  @Type(type = "text")
   private String email2;
   @Expose
+  @Column (name = "email3")
+  @Type(type = "text")
   private String email3;
   @XStreamOmitField
+  @Transient
   private String allPhones;
   @XStreamOmitField
+  @Transient
   private String allEmails;
   @Expose
+  @Column (name = "address")
+  @Type(type = "text")
   private String address1;
   @Expose
+  @Column (name = "address2")
+  @Type(type = "text")
   private String address2;
   @Expose
+  @Column (name = "middlename")
   private String middlename;
   @Expose
+  @Column (name = "nickname")
   private String nickname;
   @Expose
+  @Column (name = "company")
   private String company;
   @Expose
+  @Column (name = "title")
   private String title;
   @Expose
+  @Column (name = "fax")
+  @Type(type = "text")
   private String fax;
   @Expose
+  @Column (name = "homepage")
+  @Type(type = "text")
   private String homepage;
   @Expose
+  @Column (name = "phone2")
+  @Type(type = "text")
   private String privatephone;
   @Expose
-  private String bday;
+  @Column (name = "bday")
+  @Type(type = "byte")
+  private byte bday;
   @Expose
+  @Column (name = "bmonth")
   private String bmonth;
   @Expose
+  @Column (name = "byear")
   private String byear;
   @Expose
-  private String aday;
+  @Column (name = "aday")
+  @Type(type = "byte")
+  private byte aday;
   @Expose
+  @Column (name = "amonth")
   private String amonth;
   @Expose
+  @Column (name = "ayear")
   private String ayear;
   @Expose
+  @Column (name = "notes")
+  @Type(type = "text")
   private String notes;
   @XStreamOmitField
+  @Transient
   private String alldetails;
   @Expose
-  private File photo;
+  @Column (name = "photo")
+  @Type(type = "text")
+  private String photo;
+
+  @Override
+  public String toString() {
+    return "ContactData{" +
+            "id=" + id +
+            ", firstName='" + firstName + '\'' +
+            ", lastName='" + lastName + '\'' +
+            '}';
+  }
 
   public File getPhoto() {
-    return photo;
+    return new File(photo);
   }
 
   public ContactData withPhoto(File photo) {
-    this.photo = photo;
+    this.photo = photo.getPath();
     return this;
   }
 
@@ -162,11 +222,11 @@ public class ContactData {
   }
 
   public String getBday() {
-    return bday;
+    return Byte.toString(bday);
   }
 
   public ContactData withBday(String bday) {
-    this.bday = bday;
+    this.bday = bday.getBytes()[0];
     return this;
   }
 
@@ -189,11 +249,11 @@ public class ContactData {
   }
 
   public String getAday() {
-    return aday;
+    return Byte.toString(aday);
   }
 
   public ContactData withAday(String aday) {
-    this.aday = aday;
+    this.aday = aday.getBytes()[0];
     return this;
   }
 
@@ -375,12 +435,4 @@ public class ContactData {
     return result;
   }
 
-  @Override
-  public String toString() {
-    return "ContactData{" +
-            "id=" + id +
-            ", firstName='" + firstName + '\'' +
-            ", lastName='" + lastName + '\'' +
-            '}';
-  }
 }
