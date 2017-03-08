@@ -4,7 +4,7 @@
 <suite name="AllTests" preserve-order="true" parallel="false">
 <test name="tests">
     <classes>
-        <class name="ru.stqa.addressbook.tests.ContactCreationTests"/>
+        <class name="ContactCreationTests"/>
     </classes>
 </test>
 </suite>
