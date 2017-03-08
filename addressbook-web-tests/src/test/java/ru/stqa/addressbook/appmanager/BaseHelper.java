@@ -36,6 +36,9 @@ public class BaseHelper {
     }
   }
 
+  //protected  void con
+
+
   public boolean isAlertPresent() {
     try {
       wd.switchTo().alert();

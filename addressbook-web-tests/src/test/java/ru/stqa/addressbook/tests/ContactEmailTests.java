@@ -22,9 +22,6 @@ public class ContactEmailTests extends TestBase {
               .withWorkPhone(app.getData().getProperty("precondition.workPhone")).withFax(app.getData().getProperty("precondition.fax")).withEmail1(app.getData().getProperty("precondition.email1")).withEmail2(app.getData().getProperty("precondition.email2"))
               .withEmail3(app.getData().getProperty("precondition.email3")).withHomePage(app.getData().getProperty("precondition.homePage")).withAddress2(app.getData().getProperty("precondition.address2"))
               .withPrivatephone(app.getData().getProperty("precondition.privatePhone")).withNotes(app.getData().getProperty("precondition.notes")).withGroup(null));
-
-      app.contact().create(new ContactData().withFirstName(app.getData().getProperty("precondition.firstName")).withLastName(app.getData().getProperty("precondition.lastName"))
-              .withPhoneNumber(app.getData().getProperty("precondition.privatePhone")).withEmailAddress(app.getData().getProperty("precondition.email")).withGroup(app.getData().getProperty("precondition.group")));
     }
   }
   @Test
